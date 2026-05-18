@@ -1,18 +1,13 @@
-@import "tailwindcss";
+@import "tailwindcss" source("../");
 
-/* Tell Tailwind v4 where to scan for classes */
-@source "../../components/**/*.{js,ts,jsx,tsx}";
-@source "../../app/**/*.{js,ts,jsx,tsx}";
-@source "../**/*.{js,ts,jsx,tsx}";
+/* Keep scanning scoped to src so dev/prod builds match */
+@source "./**/*.{js,ts,jsx,tsx,mdx}";
+@source "../components/**/*.{js,ts,jsx,tsx,mdx}";
+@source "../hooks/**/*.{js,ts,jsx,tsx,mdx}";
+@source "../data/**/*.{js,ts,jsx,tsx,mdx}";
 
-/* Safelist — force-include classes used dynamically or in string templates */
-@source unsafe-inline {
-  backdrop-blur backdrop-blur-sm backdrop-blur-md backdrop-blur-lg backdrop-blur-xl backdrop-blur-2xl
-  bg-white/5 bg-white/10 bg-blue-500/10 bg-purple-500/10
-  border-white/10 border-white/20 border-white/25
-  text-white/40
-  blur-[140px] blur-[160px]
-}
+/* Safelist dynamic/arbitrary utilities used in effects layers */
+@source inline("backdrop-blur backdrop-blur-sm backdrop-blur-md backdrop-blur-lg backdrop-blur-xl backdrop-blur-2xl bg-white/5 bg-white/10 bg-white/[0.04] bg-white/[0.06] bg-blue-500/10 bg-purple-500/10 border-white/10 border-white/20 border-white/25 text-white/40 blur-[140px] blur-[160px] bg-[#05060a] mix-blend-overlay opacity-[0.03] bg-[url('/noise.png')]");
 
 @theme inline {
   /* Colors */
