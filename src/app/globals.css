@@ -1,16 +1,36 @@
 @import "tailwindcss";
+
+/* Tell Tailwind v4 where to scan for classes */
+@source "../../components/**/*.{js,ts,jsx,tsx}";
+@source "../../app/**/*.{js,ts,jsx,tsx}";
+@source "../**/*.{js,ts,jsx,tsx}";
+
+/* Safelist — force-include classes used dynamically or in string templates */
+@source unsafe-inline {
+  backdrop-blur backdrop-blur-sm backdrop-blur-md backdrop-blur-lg backdrop-blur-xl backdrop-blur-2xl
+  bg-white/5 bg-white/10 bg-blue-500/10 bg-purple-500/10
+  border-white/10 border-white/20 border-white/25
+  text-white/40
+  blur-[140px] blur-[160px]
+}
+
+@theme inline {
+  /* Colors */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  /* Fonts */
+  --font-sans: var(--font-google-sans);
+  --font-mono: var(--font-lexend-mono);
+
+  /* Custom blur scale values */
+  --blur-140px: 140px;
+  --blur-160px: 160px;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-html {
-  scroll-behavior: smooth;
-}
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-google-sans);
-  --font-mono: var(--font-lexend-mono);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -20,11 +40,16 @@ html {
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans)
+  font-family: var(--font-sans);
 }
+
 @keyframes float {
   0%, 100% {
     transform: translateY(0px);
@@ -32,9 +57,6 @@ body {
   50% {
     transform: translateY(20px);
   }
-}
-html {
-  scroll-behavior: smooth;
 }
 
 @media (prefers-reduced-motion: no-preference) {
