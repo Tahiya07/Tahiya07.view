@@ -16,7 +16,7 @@ export default function Hero() {
           Frontend Developer • UI Designer • CSE Student
         </p>
 
-        {/* name (Apple-style light typography) */}
+        {/* name */}
         <h1 className="text-5xl sm:text-6xl md:text-7xl font-light tracking-tight leading-[1.05]">
           Tahiya Zareen Hiya
         </h1>
@@ -34,10 +34,13 @@ export default function Hero() {
             href="#projects"
             className="
               px-6 py-3 rounded-full
-              bg-white/5 backdrop-blur-xl
+              bg-white/[0.05]
+              backdrop-blur-xl
               border border-white/10
               text-white/70
-              hover:text-white hover:border-white/25 hover:bg-white/10
+              hover:text-white
+              hover:border-white/25
+              hover:bg-white/[0.08]
               transition duration-300
             "
           >
@@ -49,10 +52,13 @@ export default function Hero() {
             target="_blank"
             className="
               px-6 py-3 rounded-full
-              bg-white/5 backdrop-blur-xl
+              bg-white/[0.05]
+              backdrop-blur-xl
               border border-white/10
               text-white/70
-              hover:text-white hover:border-white/25 hover:bg-white/10
+              hover:text-white
+              hover:border-white/25
+              hover:bg-white/[0.08]
               transition duration-300
             "
           >

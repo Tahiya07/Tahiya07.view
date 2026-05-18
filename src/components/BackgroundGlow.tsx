@@ -7,14 +7,16 @@ export default function BackgroundGlow() {
 
   useEffect(() => {
     const onScroll = () => setScrollY(window.scrollY);
+
     window.addEventListener("scroll", onScroll);
+
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
     <div className="fixed inset-0 -z-10 bg-[#05060a] overflow-hidden">
 
-      {/* base spatial field */}
+      {/* base ambient field */}
       <div
         className="absolute inset-0 opacity-70"
         style={{
@@ -25,24 +27,37 @@ export default function BackgroundGlow() {
         }}
       />
 
-      {/* moving depth layer 1 */}
+      {/* floating glow 1 */}
       <div
-        className="absolute w-[600px] h-[600px] rounded-full bg-blue-500/10 blur-[140px]"
+        className="
+          absolute
+          w-[600px] h-[600px]
+          rounded-full
+          bg-blue-500/[0.10]
+          blur-[140px]
+        "
         style={{
           transform: `translate(${scrollY * 0.02}px, ${scrollY * -0.03}px)`,
         }}
       />
 
-      {/* moving depth layer 2 */}
+      {/* floating glow 2 */}
       <div
-        className="absolute bottom-0 right-0 w-[700px] h-[700px] rounded-full bg-purple-500/10 blur-[160px]"
+        className="
+          absolute bottom-0 right-0
+          w-[700px] h-[700px]
+          rounded-full
+          bg-purple-500/[0.10]
+          blur-[160px]
+        "
         style={{
           transform: `translate(${scrollY * -0.03}px, ${scrollY * 0.02}px)`,
         }}
       />
 
-      {/* vignette (Vision Pro feel) */}
+      {/* cinematic vignette */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.3)_50%,rgba(0,0,0,0.85)_100%)]" />
+
     </div>
   );
 }
