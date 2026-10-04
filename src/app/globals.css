@@ -187,6 +187,36 @@ body {
 }
 
 
+/* Dark-only neon dot shower. */
+.dark-dot-shower {
+  overflow: hidden;
+  opacity: 0.95;
+  mask-image: linear-gradient(180deg, black 0%, black 62%, rgba(0,0,0,.72) 82%, transparent 100%);
+  -webkit-mask-image: linear-gradient(180deg, black 0%, black 62%, rgba(0,0,0,.72) 82%, transparent 100%);
+}
+
+.dark-fall-dot {
+  position: absolute;
+  top: -12px;
+  border-radius: 999px;
+  background: rgba(125, 211, 252, 0.95);
+  box-shadow: 0 0 5px rgba(56,189,248,.95), 0 0 12px rgba(59,130,246,.65), 0 0 22px rgba(139,92,246,.24);
+  animation: neon-dot-fall linear infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes neon-dot-fall {
+  0% { transform: translate3d(0,-18px,0) scale(.7); opacity: 0; }
+  8% { opacity: .78; }
+  64% { opacity: .62; }
+  86% { opacity: .24; }
+  100% { transform: translate3d(0,118vh,0) scale(.42); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dark-fall-dot { animation: none; top: 12%; opacity: .28; }
+}
+
 /* Dark-only technical background layers. */
 .dark-grid {
   opacity: 0.16;
