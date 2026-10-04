@@ -1,6 +1,9 @@
 export default function Hero() {
   return (
-    <section id="top" className="min-h-[82vh]" flex items-center justify-center px-4">
+    <section
+      id="top"
+      className="min-h-[82vh] flex items-center justify-center px-4"
+    >
       <div className="max-w-2xl text-center space-y-7">
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-light tracking-tight leading-[1.05]">
           Tahiya Zareen Hiya
