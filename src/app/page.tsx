@@ -8,11 +8,13 @@ import BackgroundGlow from "../components/BackgroundGlow";
 import LightProvider from "../components/LightProvider";
 import Section from "../components/Sections";
 import CustomCursor from "../components/CustomCursor";
+import ScrollProgress from "../components/ScrollProgress";
 
 export default function Page() {
   return (
     <LightProvider>
       <CustomCursor />
+      <ScrollProgress />
       <main className="relative min-h-screen text-white overflow-x-hidden">
         <BackgroundGlow />
         <div className="pointer-events-none fixed inset-0 opacity-[0.03] mix-blend-overlay bg-[url('/noise.png')]" />
