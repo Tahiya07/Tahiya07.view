@@ -156,6 +156,21 @@ html[data-theme="light"] ::selection {
 
   .custom-cursor-dot.is-clicking { transform: translate(-50%, -50%) scale(.65); }
   .custom-cursor-ring.is-clicking { transform: translate(-50%, -50%) scale(.82); }
+
+  html[data-theme="dark"] .custom-cursor-dot {
+    background: #ffffff;
+    box-shadow: 0 0 16px rgba(255,255,255,.55);
+  }
+
+  html[data-theme="dark"] .custom-cursor-ring {
+    border-color: rgba(255,255,255,.65);
+    background: rgba(0,0,0,.08);
+  }
+
+  html[data-theme="dark"] .custom-cursor-ring.is-hovering {
+    border-color: rgba(255,255,255,.75);
+    background: rgba(255,255,255,.07);
+  }
 }
 
 @media (hover: none), (pointer: coarse) {
