@@ -28,12 +28,12 @@ export default function BackgroundGlow() {
           {Array.from({ length: 56 }, (_, i) => {
             const left = (i * 37.7 + 8) % 100;
             const delay = -((i * 0.47) % 7.5);
-            const duration = 5.8 + ((i * 1.13) % 4.8);
-            const size = 2.2 + ((i * 0.31) % 2.8);
+            const duration = 8.5 + ((i * 1.13) % 5.5);
+            const size = 2.2 + ((i * 0.31) % 2.8);\n            const pulseDelay = -((i * 0.83) % 6.5);\n            const pulseDuration = 4.5 + ((i * 0.67) % 4.5);
             return (
               <span key={i} className="dark-fall-dot" style={{
                 left: left + "%", width: size + "px", height: size + "px",
-                animationDelay: delay + "s", animationDuration: duration + "s",
+                animationDelay: delay + "s, " + pulseDelay + "s",\n                animationDuration: duration + "s, " + pulseDuration + "s",
               }} />
             );
           })}
