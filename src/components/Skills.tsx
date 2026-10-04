@@ -17,9 +17,9 @@ const groups = [
 
 export default function Skills() {
   return (
-    <div className="grid md:grid-cols-2 gap-5">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-stretch">
       {groups.map((g, i) => (
-        <MotionDiv key={g.title} delay={i * 0.05}>
+        <MotionDiv key={g.title} delay={i * 0.05} className="h-full">
           <GlassCard>
             <div className="space-y-2.5">
               <h3 className="text-base font-medium">{g.title}</h3>
