@@ -11,15 +11,8 @@ export default function GlassCard({
 
   return (
     <div className="relative group h-full rounded-2xl">
-
-      {/* dynamic light layer */}
       <div
-        className="
-          pointer-events-none
-          absolute inset-0 rounded-2xl
-          opacity-0 group-hover:opacity-100
-          transition duration-300
-        "
+        className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition duration-300"
         style={{
           background: `radial-gradient(
             500px circle at ${x}% ${y}%,
@@ -30,23 +23,11 @@ export default function GlassCard({
         }}
       />
 
-      {/* base glass */}
       <div
-        className="
-          relative z-10
-          rounded-2xl
-          border border-white/10
-          bg-white/[0.04]
-          backdrop-blur-xl
-          p-6
-          transition duration-300
-          hover:border-white/25
-          hover:bg-white/[0.06]\n          hover:-translate-y-1
-        "
+        className="relative z-10 flex h-full flex-col rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-xl p-6 transition duration-300 hover:border-white/25 hover:bg-white/[0.06] hover:-translate-y-1"
       >
         {children}
       </div>
-
     </div>
   );
 }
