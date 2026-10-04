@@ -10,7 +10,7 @@ const projects = [
     tech: "Python, PyTorch, Hugging Face, llama.cpp",
     href: "https://docs.google.com/document/d/1TjWHN_VCOVyKRzPoLacD2SQSm1_-bpp4LsrgCmtcCH0/edit?tab=t.0",
     linkLabel: "Project document",
-    ratio: "aspect-[4/3]",
+    ratio: "aspect-[16/10]",
     featured: true,
   },
   {
@@ -31,7 +31,7 @@ const projects = [
     href: "https://elio-bot.vercel.app/",
     preview: "https://elio-bot.vercel.app/",
     linkLabel: "Live demo",
-    ratio: "aspect-[5/4]",
+    ratio: "aspect-[16/10]",
   },
   {
     title: "Market Pulse",
@@ -40,7 +40,7 @@ const projects = [
     tech: "React Native, Expo, TypeScript",
     href: "https://drive.google.com/drive/folders/1TYC9n21ta7SGWsQ6CsMQmby0uT0-1HYK?usp=sharing",
     linkLabel: "App download",
-    ratio: "aspect-[16/11]",
+    ratio: "aspect-[16/10]",
   },
   {
     title: "UAP CSE Department Website Redevelop",
@@ -50,7 +50,7 @@ const projects = [
     href: "https://cse.uap-bd.edu",
     preview: "https://cse.uap-bd.edu",
     linkLabel: "Live site",
-    ratio: "aspect-[3/2]",
+    ratio: "aspect-[16/10]",
   },
 ];
 
@@ -61,7 +61,7 @@ function ProjectThumbnail({
 }) {
   return (
     <div
-      className={`relative ${project.ratio} overflow-hidden border-b border-white/10 bg-black/30`}
+      className={`relative ${project.ratio} shrink-0 overflow-hidden border-b border-white/10 bg-black/30`}
     >
       {project.preview ? (
         <iframe
@@ -87,22 +87,22 @@ function ProjectThumbnail({
 
 export default function Projects() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-5 items-start">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-5 items-stretch">
       {projects.map((p, i) => (
         <MotionDiv
           key={p.title}
           delay={i * 0.05}
-          className="min-w-0"
+          className="min-w-0 h-full"
         >
           <a
             href={p.href}
             target="_blank"
             rel="noreferrer"
-            className="group relative block overflow-hidden rounded-xl border border-white/10 bg-white/[0.035] transition duration-500 hover:-translate-y-1 hover:border-white/25"
+            className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-white/10 bg-white/[0.035] transition duration-500 hover:-translate-y-1 hover:border-white/25"
           >
             <ProjectThumbnail project={p} />
 
-            <div className="relative p-4">
+            <div className="relative flex flex-1 flex-col p-4">
               <div className="flex items-start justify-between gap-3">
                 <div>
                   <p className="text-[9px] font-medium uppercase tracking-[0.15em] text-white/45">
@@ -123,7 +123,7 @@ export default function Projects() {
                 <p className="mt-1.5 text-[10px] text-white/45">{p.tech}</p>
               </div>
 
-              <div className="mt-2.5 text-[11px] text-white/35 transition group-hover:text-white/60">
+              <div className="mt-auto pt-2.5 text-[11px] text-white/35 transition group-hover:text-white/60">
                 {p.linkLabel} →
               </div>
             </div>
