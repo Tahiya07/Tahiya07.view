@@ -187,6 +187,67 @@ body {
 }
 
 
+/* Dark-theme lighting layers. */
+.dark-energy-field {
+  overflow: hidden;
+  opacity: .9;
+}
+
+.dark-light-orb {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 999px;
+  filter: blur(90px);
+  animation: dark-light-drift 11s ease-in-out infinite alternate;
+  will-change: transform, opacity;
+}
+
+.dark-light-orb-one {
+  left: -10%;
+  top: 8%;
+  background: rgba(37, 99, 235, .17);
+}
+
+.dark-light-orb-two {
+  right: -12%;
+  top: 48%;
+  background: rgba(139, 92, 246, .16);
+  animation-delay: -5s;
+  animation-duration: 14s;
+}
+
+.dark-light-beam {
+  position: absolute;
+  width: 75%;
+  height: 2px;
+  left: 12%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, rgba(56,189,248,.35), rgba(167,139,250,.48), rgba(56,189,248,.22), transparent);
+  filter: blur(5px);
+  opacity: .42;
+  transform-origin: center;
+  animation: dark-beam-pulse 7s ease-in-out infinite;
+}
+
+.dark-light-beam-one { top: 24%; transform: rotate(-8deg); }
+.dark-light-beam-two { top: 72%; transform: rotate(7deg); animation-delay: -3.5s; opacity: .3; }
+
+@keyframes dark-light-drift {
+  0% { transform: translate3d(-2%, -1%, 0) scale(.92); opacity: .55; }
+  50% { opacity: .9; }
+  100% { transform: translate3d(9%, 7%, 0) scale(1.08); opacity: .7; }
+}
+
+@keyframes dark-beam-pulse {
+  0%, 100% { opacity: .18; transform: translateX(-2%) rotate(-8deg) scaleX(.86); }
+  50% { opacity: .55; transform: translateX(2%) rotate(-8deg) scaleX(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dark-light-orb, .dark-light-beam { animation: none; }
+}
+
 /* Dark-only neon dot shower. */
 .dark-dot-shower {
   overflow: hidden;
