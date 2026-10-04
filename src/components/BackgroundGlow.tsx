@@ -17,6 +17,21 @@ export default function BackgroundGlow() {
       <div className="dark-atmosphere pointer-events-none absolute inset-0">
         <div className="dark-grid absolute inset-0" />
 
+        <div className="dark-dot-shower absolute inset-0" aria-hidden="true">
+          {Array.from({ length: 56 }, (_, i) => {
+            const left = (i * 37.7 + 8) % 100;
+            const delay = -((i * 0.47) % 7.5);
+            const duration = 5.8 + ((i * 1.13) % 4.8);
+            const size = 1.5 + ((i * 0.31) % 2.2);
+            return (
+              <span key={i} className="dark-fall-dot" style={{
+                left: left + "%", width: size + "px", height: size + "px",
+                animationDelay: delay + "s", animationDuration: duration + "s",
+              }} />
+            );
+          })}
+        </div>
+
         <div
           className="absolute -left-[18%] -top-[16%] h-[720px] w-[720px] rounded-full blur-[150px]"
           style={{
