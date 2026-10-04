@@ -25,16 +25,26 @@ export default function BackgroundGlow() {
   const darkTraceTwoY = useTransform(scrollYProgress, [0, 1], [0, 90]);
   const dotShowerY = useTransform(scrollYProgress, [0, 1], [0, -170]);
   const dotShowerScale = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
-
-  const motionStyle = (x: ReturnType<typeof useTransform>, y: ReturnType<typeof useTransform>) =>
-    reduceMotion ? undefined : { x, y };
+  const fieldOrbOneX = useTransform(scrollYProgress, [0, 1], [0, 120]);
+  const fieldOrbOneY = useTransform(scrollYProgress, [0, 1], [0, -80]);
+  const fieldOrbTwoX = useTransform(scrollYProgress, [0, 1], [0, -120]);
+  const fieldOrbTwoY = useTransform(scrollYProgress, [0, 1], [0, 100]);
 
   return (
     <div className="fixed inset-0 z-0 overflow-hidden bg-[var(--background)]">
       <div className="light-atmosphere pointer-events-none absolute inset-0" aria-hidden="true">
-        <motion.div className="light-glow light-glow-one" style={motionStyle(lightGlowOneX, lightGlowOneY)} />
-        <motion.div className="light-glow light-glow-two" style={motionStyle(lightGlowTwoX, lightGlowTwoY)} />
-        <motion.div className="light-grid" style={reduceMotion ? undefined : { y: lightGridY }} />
+        <motion.div
+          className="light-glow light-glow-one"
+          style={reduceMotion ? undefined : { x: lightGlowOneX, y: lightGlowOneY }}
+        />
+        <motion.div
+          className="light-glow light-glow-two"
+          style={reduceMotion ? undefined : { x: lightGlowTwoX, y: lightGlowTwoY }}
+        />
+        <motion.div
+          className="light-grid"
+          style={reduceMotion ? undefined : { y: lightGridY }}
+        />
         <motion.div
           className="light-orbit"
           style={reduceMotion ? { left: "30%", top: "18%" } : { left: "30%", top: "18%", rotate: lightOrbitOneRotate }}
@@ -54,8 +64,14 @@ export default function BackgroundGlow() {
         />
 
         <div className="dark-energy-field absolute inset-0" aria-hidden="true">
-          <motion.div className="dark-light-orb dark-light-orb-one" style={motionStyle(darkOrbOneX, darkOrbOneY)} />
-          <motion.div className="dark-light-orb dark-light-orb-two" style={motionStyle(darkOrbTwoX, darkOrbTwoY)} />
+          <motion.div
+            className="dark-light-orb dark-light-orb-one"
+            style={reduceMotion ? undefined : { x: darkOrbOneX, y: darkOrbOneY }}
+          />
+          <motion.div
+            className="dark-light-orb dark-light-orb-two"
+            style={reduceMotion ? undefined : { x: darkOrbTwoX, y: darkOrbTwoY }}
+          />
           <div className="dark-light-beam dark-light-beam-one" />
           <div className="dark-light-beam dark-light-beam-two" />
         </div>
@@ -93,7 +109,7 @@ export default function BackgroundGlow() {
           className="absolute -left-[18%] -top-[16%] h-[720px] w-[720px] rounded-full blur-[150px]"
           style={{
             background: "rgba(37, 99, 235, 0.13)",
-            ...(reduceMotion ? {} : { x: useTransform(scrollYProgress, [0, 1], [0, 120]), y: useTransform(scrollYProgress, [0, 1], [0, -80]) }),
+            ...(reduceMotion ? {} : { x: fieldOrbOneX, y: fieldOrbOneY }),
           }}
         />
 
@@ -101,7 +117,7 @@ export default function BackgroundGlow() {
           className="absolute -bottom-[22%] -right-[16%] h-[760px] w-[760px] rounded-full blur-[170px]"
           style={{
             background: "rgba(139, 92, 246, 0.11)",
-            ...(reduceMotion ? {} : { x: useTransform(scrollYProgress, [0, 1], [0, -120]), y: useTransform(scrollYProgress, [0, 1], [0, 100]) }),
+            ...(reduceMotion ? {} : { x: fieldOrbTwoX, y: fieldOrbTwoY }),
           }}
         />
 
