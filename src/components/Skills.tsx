@@ -1,36 +1,53 @@
 import { MotionDiv } from "../components/Motion";
 import GlassCard from "../components/UI/Glasscard";
 
-export default function Skills() {
-  const groups = [
-    { title: "Frontend", items: "React, Next.js, Tailwind, Framer Motion" },
-    { title: "Backend", items: "Django, Python, Java, SQL" },
-    { title: "AI / ML", items: "NLP, LLMs, PyTorch, TensorFlow" },
-    { title: "Design", items: "Figma, UI/UX, Prototyping" },
-    { title: "Tools", items: "Git, GitHub, Linux, Agile" },
-  ];
+const groups = [
+  {
+    title: "Programming",
+    items: "Python, Java, JavaScript, TypeScript, HTML, CSS",
+  },
+  {
+    title: "Frontend",
+    items: "React, Next.js, Tailwind CSS, Vite, Framer Motion",
+  },
+  {
+    title: "Backend",
+    items: "Django, FastAPI, Node.js",
+  },
+  {
+    title: "Mobile",
+    items: "Expo, Capacitor",
+  },
+  {
+    title: "Databases",
+    items: "PostgreSQL, MySQL",
+  },
+  {
+    title: "AI / Machine Learning",
+    items:
+      "PyTorch, TensorFlow, scikit-learn, Hugging Face Transformers, LLMs, NLP, RAG, Computer Vision, OCR, Federated Learning",
+  },
+  {
+    title: "Tools & Platforms",
+    items: "Git, GitHub, Linux, VS Code, Figma, Vercel, Render, Railway",
+  },
+  {
+    title: "Coding Agents",
+    items: "Cursor, Codex, Devin",
+  },
+];
 
+export default function Skills() {
   return (
     <div className="grid md:grid-cols-2 gap-6">
       {groups.map((g, i) => (
         <MotionDiv key={g.title} delay={i * 0.05}>
-          
           <GlassCard>
             <div className="space-y-3">
-
-              {/* title */}
-              <h3 className="text-lg font-medium">
-                {g.title}
-              </h3>
-
-              {/* items */}
-              <p className="text-white/50">
-                {g.items}
-              </p>
-
+              <h3 className="text-lg font-medium">{g.title}</h3>
+              <p className="text-white/50 leading-relaxed">{g.items}</p>
             </div>
           </GlassCard>
-
         </MotionDiv>
       ))}
     </div>
