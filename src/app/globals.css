@@ -185,3 +185,48 @@ body {
     transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
   }
 }
+
+
+/* Dark-only technical background layers. */
+.dark-grid {
+  opacity: 0.16;
+  background-image:
+    linear-gradient(rgba(148, 163, 184, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.055) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(ellipse 85% 70% at 50% 42%, black 18%, transparent 88%);
+  -webkit-mask-image: radial-gradient(ellipse 85% 70% at 50% 42%, black 18%, transparent 88%);
+}
+
+.dark-trace {
+  position: absolute;
+  left: -12%;
+  width: 124%;
+  height: 1px;
+  opacity: 0.16;
+  background: linear-gradient(90deg, transparent, rgba(96, 165, 250, 0.65), rgba(167, 139, 250, 0.45), transparent);
+  filter: blur(0.35px);
+}
+
+.dark-trace-one {
+  top: 28%;
+  transform-origin: center;
+  rotate: -4deg;
+}
+
+.dark-trace-two {
+  top: 68%;
+  transform-origin: center;
+  rotate: 5deg;
+  opacity: 0.11;
+}
+
+.dark-vignette {
+  background:
+    radial-gradient(ellipse at center, transparent 34%, rgba(2, 6, 23, 0.18) 68%, rgba(2, 6, 23, 0.62) 100%),
+    linear-gradient(180deg, rgba(2, 6, 23, 0.10), transparent 24%, transparent 76%, rgba(2, 6, 23, 0.20));
+}
+
+html[data-theme="light"] .dark-atmosphere {
+  display: none;
+}
