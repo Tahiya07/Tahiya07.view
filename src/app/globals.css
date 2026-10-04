@@ -440,8 +440,8 @@ html[data-theme="light"] .dark-atmosphere {
   z-index: 6;
   display: block;
   border-radius: 999px;
-  background: #000000;
-  box-shadow: 0 0 4px rgba(0,0,0,.85), 0 0 10px rgba(0,0,0,.45);
+  background: rgba(0,0,0,.28);
+  box-shadow: 0 0 4px rgba(0,0,0,.16), 0 0 10px rgba(0,0,0,.08);
   animation: light-dot-fall linear infinite;
   will-change: transform, opacity, filter;
   animation-timing-function: linear;
@@ -450,12 +450,12 @@ html[data-theme="light"] .dark-atmosphere {
 
 @keyframes light-dot-fall {
   0% { transform: translate3d(0,-18px,0) scale(.75); opacity: 0; }
-  8% { opacity: .95; }
-  58% { opacity: .72; }
-  68% { opacity: 1; filter: brightness(1.25); }
-  72% { opacity: .62; filter: brightness(.95); }
-  78% { opacity: .92; filter: brightness(1.1); }
-  88% { opacity: .38; filter: brightness(.9); }
+  8% { opacity: .62; }
+  58% { opacity: .46; }
+  68% { opacity: .72; filter: brightness(1.05); }
+  72% { opacity: .38; filter: brightness(.98); }
+  78% { opacity: .58; filter: brightness(1.02); }
+  88% { opacity: .24; filter: brightness(.96); }
   100% { transform: translate3d(0,118vh,0) scale(.55); opacity: 0; filter: brightness(.8); }
 }
 
