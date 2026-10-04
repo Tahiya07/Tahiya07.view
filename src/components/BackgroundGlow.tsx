@@ -8,56 +8,42 @@ export default function BackgroundGlow() {
   useEffect(() => {
     const onScroll = () => setScrollY(window.scrollY);
 
-    window.addEventListener("scroll", onScroll);
-
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
-    <div className="fixed inset-0 -z-10 bg-[var(--background)] overflow-hidden">
+    <div className="fixed inset-0 -z-10 overflow-hidden bg-[var(--background)]">
+      <div className="dark-atmosphere pointer-events-none absolute inset-0">
+        <div className="dark-grid absolute inset-0" />
 
-      {/* base ambient field */}
-      <div
-        className="absolute inset-0 opacity-70"
-        style={{
-          background:
-            "radial-gradient(circle at 20% 20%, rgba(59,130,246,0.12), transparent 40%)," +
-            "radial-gradient(circle at 80% 30%, rgba(168,85,247,0.10), transparent 45%)," +
-            "radial-gradient(circle at 50% 80%, rgba(16,185,129,0.08), transparent 40%)",
-        }}
-      />
+        <div
+          className="absolute -left-[18%] -top-[16%] h-[720px] w-[720px] rounded-full blur-[150px]"
+          style={{
+            background: "rgba(37, 99, 235, 0.13)",
+            transform: "translate(" + scrollY * 0.018 + "px, " + scrollY * -0.012 + "px)",
+          }}
+        />
 
-      {/* floating glow 1 */}
-      <div
-        className="
-          absolute
-          w-[600px] h-[600px]
-          rounded-full
-          bg-blue-500/[0.10]
-          blur-[140px]
-        "
-        style={{
-          transform: `translate(${scrollY * 0.02}px, ${scrollY * -0.03}px)`,
-        }}
-      />
+        <div
+          className="absolute -bottom-[22%] -right-[16%] h-[760px] w-[760px] rounded-full blur-[170px]"
+          style={{
+            background: "rgba(139, 92, 246, 0.11)",
+            transform: "translate(" + scrollY * -0.018 + "px, " + scrollY * 0.014 + "px)",
+          }}
+        />
 
-      {/* floating glow 2 */}
-      <div
-        className="
-          absolute bottom-0 right-0
-          w-[700px] h-[700px]
-          rounded-full
-          bg-purple-500/[0.10]
-          blur-[160px]
-        "
-        style={{
-          transform: `translate(${scrollY * -0.03}px, ${scrollY * 0.02}px)`,
-        }}
-      />
+        <div
+          className="dark-trace dark-trace-one"
+          style={{ transform: "translate3d(" + scrollY * 0.012 + "px, " + scrollY * -0.008 + "px, 0)" }}
+        />
+        <div
+          className="dark-trace dark-trace-two"
+          style={{ transform: "translate3d(" + scrollY * -0.01 + "px, " + scrollY * 0.006 + "px, 0)" }}
+        />
 
-      {/* cinematic vignette */}
-      <div className="background-vignette absolute inset-0" />
-
+        <div className="dark-vignette absolute inset-0" />
+      </div>
     </div>
   );
 }
