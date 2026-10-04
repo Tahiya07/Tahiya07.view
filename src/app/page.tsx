@@ -2,10 +2,7 @@ import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import About from "../components/About";
 import Skills from "../components/Skills";
-import Education from "../components/Education";
 import Experience from "../components/Experience";
-import Awards from "../components/Awards";
-import Research from "../components/Research";
 import Projects from "../components/Projects";
 import GitHub from "../components/Github";
 import Contact from "../components/Contact";
@@ -39,33 +36,17 @@ export default function Page() {
                 </Section>
               </div>
 
-              <div className="grid gap-16 lg:grid-cols-2 lg:items-start">
-                <Section id="education" title="Education">
-                  <Education />
-                </Section>
-
-                <Section id="experience" title="Experience">
-                  <Experience />
-                </Section>
-              </div>
-
-              <Section id="research" title="Research">
-                <Research />
+              <Section id="experience" title="Experience">
+                <Experience />
               </Section>
 
               <Section id="projects" title="Projects">
                 <Projects />
               </Section>
 
-              <div className="grid gap-16 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
-                <Section id="awards" title="Awards">
-                  <Awards />
-                </Section>
-
-                <Section id="github" title="GitHub">
-                  <GitHub />
-                </Section>
-              </div>
+              <Section id="github" title="GitHub">
+                <GitHub />
+              </Section>
 
               <Section id="contact" title="Contact">
                 <Contact />
