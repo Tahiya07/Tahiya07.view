@@ -9,7 +9,7 @@ import GitHub from "../components/Github";
 import Contact from "../components/Contact";
 import BackgroundGlow from "../components/BackgroundGlow";
 import LightProvider from "../components/LightProvider";
-import Section from "../components/Sections";
+import Section from "../components/Sections";\nimport CustomCursor from "../components/CustomCursor";
 
 export default function Page() {
   return (
