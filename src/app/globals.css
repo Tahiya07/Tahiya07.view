@@ -41,21 +41,21 @@ html[data-theme="light"] body {
    so these mappings keep the same hierarchy readable on the light surface. */
 html[data-theme="light"] .text-white { color: #000000 !important; }
 html[data-theme="light"] .text-white\/90 { color: rgba(0,0,0,.94) !important; }
-html[data-theme="light"] .text-white\/80 { color: rgba(17,24,39,.88) !important; }
-html[data-theme="light"] .text-white\/75 { color: rgba(17,24,39,.84) !important; }
-html[data-theme="light"] .text-white\/70 { color: rgba(17,24,39,.80) !important; }
-html[data-theme="light"] .text-white\/65 { color: rgba(17,24,39,.76) !important; }
-html[data-theme="light"] .text-white\/60 { color: rgba(17,24,39,.72) !important; }
-html[data-theme="light"] .text-white\/55 { color: rgba(17,24,39,.66) !important; }
-html[data-theme="light"] .text-white\/50 { color: rgba(17,24,39,.62) !important; }
-html[data-theme="light"] .text-white\/45 { color: rgba(17,24,39,.56) !important; }
-html[data-theme="light"] .text-white\/40 { color: rgba(17,24,39,.52) !important; }
-html[data-theme="light"] .text-white\/35 { color: rgba(17,24,39,.48) !important; }
-html[data-theme="light"] .text-white\/30 { color: rgba(17,24,39,.44) !important; }
-html[data-theme="light"] .text-white\/20 { color: rgba(17,24,39,.34) !important; }
+html[data-theme="light"] .text-white\/80 { color: rgba(0,0,0,.88) !important; }
+html[data-theme="light"] .text-white\/75 { color: rgba(0,0,0,.84) !important; }
+html[data-theme="light"] .text-white\/70 { color: rgba(0,0,0,.80) !important; }
+html[data-theme="light"] .text-white\/65 { color: rgba(0,0,0,.76) !important; }
+html[data-theme="light"] .text-white\/60 { color: rgba(0,0,0,.72) !important; }
+html[data-theme="light"] .text-white\/55 { color: rgba(0,0,0,.66) !important; }
+html[data-theme="light"] .text-white\/50 { color: rgba(0,0,0,.62) !important; }
+html[data-theme="light"] .text-white\/45 { color: rgba(0,0,0,.56) !important; }
+html[data-theme="light"] .text-white\/40 { color: rgba(0,0,0,.52) !important; }
+html[data-theme="light"] .text-white\/35 { color: rgba(0,0,0,.48) !important; }
+html[data-theme="light"] .text-white\/30 { color: rgba(0,0,0,.44) !important; }
+html[data-theme="light"] .text-white\/20 { color: rgba(0,0,0,.34) !important; }
 
 html[data-theme="light"] .bg-white\/10 {
-  background-color: rgba(17,24,39,.06) !important;
+  background-color: rgba(0,0,0,.06) !important;
 }
 html[data-theme="light"] .bg-white\/\[0\.04\] {
   background-color: rgba(255,255,255,.70) !important;
@@ -84,7 +84,7 @@ html[data-theme="light"] .border-white\/15 {
   border-color: rgba(0,0,0,.14) !important;
 }
 html[data-theme="light"] .border-white\/20 {
-  border-color: rgba(17,24,39,.14) !important;
+  border-color: rgba(0,0,0,.14) !important;
 }
 html[data-theme="light"] .border-white\/25 {
   border-color: rgba(0,0,0,.18) !important;
