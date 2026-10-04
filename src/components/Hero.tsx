@@ -1,14 +1,14 @@
 export default function Hero() {
   return (
-    <section className="min-h-[82vh] flex items-center justify-center px-4">
+    <section id="top" className="min-h-[82vh]" flex items-center justify-center px-4">
       <div className="max-w-2xl text-center space-y-7">
-        <p className="text-white/40 tracking-[0.25em] uppercase text-[10px]">
-          Software Developer • AI/ML
-        </p>
-
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-light tracking-tight leading-[1.05]">
           Tahiya Zareen Hiya
         </h1>
+
+        <p className="text-white/40 tracking-[0.25em] uppercase text-[10px]">
+          Software Developer • AI/ML
+        </p>
 
         <p className="text-white/50 text-sm sm:text-base leading-relaxed max-w-xl mx-auto">
           Computer Science and Engineering undergraduate building practical
