@@ -187,6 +187,48 @@ body {
 }
 
 
+/* Light-theme background. */
+.light-atmosphere {
+  display: block;
+  overflow: hidden;
+  background: #f7f8fc;
+}
+
+.light-glow {
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  border-radius: 999px;
+  filter: blur(95px);
+  opacity: .55;
+}
+
+.light-glow-one {
+  left: -18%;
+  top: -18%;
+  background: rgba(96, 165, 250, .12);
+}
+
+.light-glow-two {
+  right: -18%;
+  bottom: -20%;
+  background: rgba(167, 139, 250, .10);
+}
+
+.light-grid {
+  position: absolute;
+  inset: 0;
+  opacity: .42;
+  background-image: radial-gradient(rgba(71, 85, 105, .11) .8px, transparent .8px);
+  background-size: 26px 26px;
+  mask-image: linear-gradient(180deg, black 0%, rgba(0,0,0,.7) 58%, transparent 100%);
+  -webkit-mask-image: linear-gradient(180deg, black 0%, rgba(0,0,0,.7) 58%, transparent 100%);
+}
+
+html[data-theme="dark"] .light-atmosphere {
+  display: none;
+}
+
 /* Dark-theme lighting layers. */
 .dark-energy-field {
   overflow: hidden;
