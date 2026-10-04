@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from "react";
 
 const sections = [
-  "about",
   "skills",
   "experience",
   "projects",
@@ -11,7 +10,7 @@ const sections = [
 ];
 
 export default function Navbar() {
-  const [active, setActive] = useState("about");
+  const [active, setActive] = useState("skills");
   const [light, setLight] = useState(true);
   const [indicator, setIndicator] = useState({ left: 0, width: 0 });
   const refs = useRef<Record<string, HTMLAnchorElement | null>>({});
@@ -33,7 +32,7 @@ export default function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       const scrollPos = window.scrollY + window.innerHeight / 3;
-      let current = "about";
+      let current = "skills";
 
       for (const id of sections) {
         const el = document.getElementById(id);
