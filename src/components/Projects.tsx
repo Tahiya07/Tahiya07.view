@@ -31,7 +31,7 @@ const projects = [
     desc: "Mobile prototype for browsing and filtering fictional disclosed-insider activity, with searchable screening, trade-detail views, and responsive layouts.",
     tag: "Mobile",
     tech: "React Native, Expo, TypeScript",
-    href: "https://drive.google.com/drive/folders/1TYC9n21ta7SGWsQ6CsMQmby0uT-0-1HYK?usp=sharing",
+    href: "https://drive.google.com/drive/folders/1TYC9n21ta7SGWsQ6CsMQmby0uT0-1HYK?usp=sharing",
     linkLabel: "App download",
   },
   {
