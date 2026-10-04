@@ -191,7 +191,11 @@ body {
 .light-atmosphere {
   display: block;
   overflow: hidden;
-  background: #f7f8fc;
+  background:
+    radial-gradient(circle at 15% 12%, rgba(96,165,250,.10), transparent 30%),
+    radial-gradient(circle at 85% 82%, rgba(167,139,250,.08), transparent 32%),
+    #f7f8fc;
+  animation: light-bg-breathe 10s ease-in-out infinite alternate;
 }
 
 .light-glow {
@@ -200,7 +204,8 @@ body {
   height: 520px;
   border-radius: 999px;
   filter: blur(95px);
-  opacity: .55;
+  opacity: .72;
+  animation: light-glow-drift 14s ease-in-out infinite alternate;
 }
 
 .light-glow-one {
@@ -212,7 +217,9 @@ body {
 .light-glow-two {
   right: -18%;
   bottom: -20%;
-  background: rgba(167, 139, 250, .10);
+  background: rgba(167, 139, 250, .14);
+  animation-delay: -6s;
+  animation-duration: 17s;
 }
 
 .light-grid {
@@ -223,6 +230,26 @@ body {
   background-size: 26px 26px;
   mask-image: linear-gradient(180deg, black 0%, rgba(0,0,0,.7) 58%, transparent 100%);
   -webkit-mask-image: linear-gradient(180deg, black 0%, rgba(0,0,0,.7) 58%, transparent 100%);
+  animation: light-grid-pulse 8s ease-in-out infinite alternate;
+}
+
+.light-orbit {
+  position: absolute;
+  width: 42vw;
+  height: 42vw;
+  min-width: 260px;
+  min-height: 260px;
+  max-width: 680px;
+  max-height: 680px;
+  border: 1px solid rgba(96,165,250,.10);
+  border-radius: 999px;
+  transform: rotate(-18deg);
+  animation: light-orbit 18s linear infinite;
+}
+
+@keyframes light-orbit {
+  from { transform: rotate(-18deg) translateX(-18px); }
+  to { transform: rotate(342deg) translateX(-18px); }
 }
 
 @keyframes light-bg-breathe {
@@ -241,7 +268,18 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .light-atmosphere, .light-glow, .light-grid { animation: none; }
+  .light-atmosphere, .light-glow, .light-grid, .light-orbit { animation: none; }
+}
+
+html[data-theme="light"] .bg-white\/\[0\.04\],
+html[data-theme="light"] .bg-white\/\[0\.05\],
+html[data-theme="light"] .bg-white\/\[0\.06\] {
+  backdrop-filter: blur(18px);
+  box-shadow: 0 16px 45px rgba(71,85,105,.07);
+}
+
+html[data-theme="light"] .light-atmosphere {
+  opacity: 1;
 }
 
 html[data-theme="dark"] .light-atmosphere {
