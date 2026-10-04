@@ -78,7 +78,7 @@ export default function Navbar() {
               ref={(el) => {
                 refs.current[sec] = el;
               }}
-              href={sec === "home" ? "#top" : `#${sec}`}
+              href={sec === "home" ? "/" : `#${sec}`}
               className={`relative z-10 px-3 py-1 text-sm capitalize transition ${
                 active === sec ? "text-white" : "text-white/40"
               }`}
@@ -103,7 +103,7 @@ export default function Navbar() {
           {sections.map((sec) => (
             <a
               key={sec}
-              href={sec === "home" ? "#top" : `#${sec}`}
+              href={sec === "home" ? "/" : `#${sec}`}
               className={`text-[10px] capitalize whitespace-nowrap transition ${
                 active === sec ? "text-white" : "text-white/40"
               }`}
