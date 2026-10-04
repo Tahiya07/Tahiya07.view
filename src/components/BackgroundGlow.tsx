@@ -29,7 +29,7 @@ export default function BackgroundGlow() {
             const left = (i * 37.7 + 8) % 100;
             const delay = -((i * 0.47) % 7.5);
             const duration = 5.8 + ((i * 1.13) % 4.8);
-            const size = 1.5 + ((i * 0.31) % 2.2);
+            const size = 2.2 + ((i * 0.31) % 2.8);
             return (
               <span key={i} className="dark-fall-dot" style={{
                 left: left + "%", width: size + "px", height: size + "px",
