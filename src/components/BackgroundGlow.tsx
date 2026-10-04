@@ -14,6 +14,12 @@ export default function BackgroundGlow() {
 
   return (
     <div className="fixed inset-0 z-0 overflow-hidden bg-[var(--background)]">
+      <div className="light-atmosphere pointer-events-none absolute inset-0" aria-hidden="true">
+        <div className="light-glow light-glow-one" />
+        <div className="light-glow light-glow-two" />
+        <div className="light-grid" />
+      </div>
+
       <div className="dark-atmosphere pointer-events-none absolute inset-0">
         <div className="dark-grid absolute inset-0" />
 
