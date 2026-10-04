@@ -5,7 +5,7 @@
 @source "../hooks/**/*.{js,ts,jsx,tsx,mdx}";
 @source "../data/**/*.{js,ts,jsx,tsx,mdx}";
 
-@source inline("backdrop-blur backdrop-blur-sm backdrop-blur-md backdrop-blur-lg backdrop-blur-xl backdrop-blur-2xl bg-white/5 bg-white/10 bg-white/[0.04] bg-white/[0.05] bg-white/[0.06] bg-blue-500/10 bg-purple-500/10 border-white/10 border-white/20 border-white/25 text-white/40 blur-[140px] blur-[160px] bg-[#05060a] mix-blend-overlay opacity-[0.03] bg-[url('/noise.png')]");
+@source inline("backdrop-blur backdrop-blur-sm backdrop-blur-md backdrop-blur-lg backdrop-blur-xl backdrop-blur-2xl bg-white/5 bg-white/10 bg-white/[0.04] bg-white/[0.05] bg-white/[0.06] border-white/10 border-white/20 border-white/25 text-white/40 blur-[140px] blur-[160px] bg-[#000000] mix-blend-overlay opacity-[0.03] bg-[url('/noise.png')]");
 
 @theme inline {
   --color-background: var(--background);
@@ -18,29 +18,29 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #000000;
 }
 
 html[data-theme="dark"] {
-  --background: #05060a;
-  --foreground: #ededed;
+  --background: #000000;
+  --foreground: #ffffff;
 }
 
 html[data-theme="light"] {
-  --background: #f7f8fc;
-  --foreground: #111827;
+  --background: #ffffff;
+  --foreground: #000000;
 }
 
 html[data-theme="light"] body {
-  background: #f7f8fc;
-  color: #111827;
+  background: #ffffff;
+  color: #000000;
 }
 
 /* Light-theme token normalization.
    The portfolio uses white-based Tailwind utilities for the dark theme,
    so these mappings keep the same hierarchy readable on the light surface. */
-html[data-theme="light"] .text-white { color: #111827 !important; }
-html[data-theme="light"] .text-white\/90 { color: rgba(17,24,39,.94) !important; }
+html[data-theme="light"] .text-white { color: #000000 !important; }
+html[data-theme="light"] .text-white\/90 { color: rgba(0,0,0,.94) !important; }
 html[data-theme="light"] .text-white\/80 { color: rgba(17,24,39,.88) !important; }
 html[data-theme="light"] .text-white\/75 { color: rgba(17,24,39,.84) !important; }
 html[data-theme="light"] .text-white\/70 { color: rgba(17,24,39,.80) !important; }
@@ -74,27 +74,25 @@ html[data-theme="light"] .bg-black\/25 {
 }
 
 html[data-theme="light"] .bg-black\/55 {
-  background-color: rgba(17,24,39,.16) !important;
+  background-color: rgba(0,0,0,.16) !important;
 }
 
 html[data-theme="light"] .border-white\/10 {
-  border-color: rgba(17,24,39,.10) !important;
+  border-color: rgba(0,0,0,.10) !important;
 }
 html[data-theme="light"] .border-white\/15 {
-  border-color: rgba(17,24,39,.14) !important;
+  border-color: rgba(0,0,0,.14) !important;
 }
 html[data-theme="light"] .border-white\/20 {
   border-color: rgba(17,24,39,.14) !important;
 }
 html[data-theme="light"] .border-white\/25 {
-  border-color: rgba(17,24,39,.18) !important;
+  border-color: rgba(0,0,0,.18) !important;
 }
 
 /* Light surfaces for the project preview overlays. */
 html[data-theme="light"] .project-thesis-surface {
   background:
-    radial-gradient(circle at 30% 20%, rgba(99,102,241,.14), transparent 40%),
-    radial-gradient(circle at 75% 75%, rgba(34,211,238,.10), transparent 42%),
     rgba(255,255,255,.70);
 }
 
@@ -103,12 +101,12 @@ html[data-theme="light"] .project-thesis-surface {
 }
 
 html[data-theme="light"] .background-vignette {
-  background: radial-gradient(circle at center, transparent 0%, rgba(255,255,255,0.02) 55%, rgba(255,255,255,0.28) 100%);
+  background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.02) 55%, rgba(0,0,0,0.08) 100%);
 }
 
 html[data-theme="light"] ::selection {
-  background: rgba(59,130,246,.18);
-  color: #111827;
+  background: rgba(0,0,0,.12);
+  color: #000000;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -131,15 +129,15 @@ html[data-theme="light"] ::selection {
   .custom-cursor-dot {
     width: 7px;
     height: 7px;
-    background: #2563eb;
-    box-shadow: 0 0 16px rgba(37,99,235,.55);
+    background: #000000;
+    box-shadow: 0 0 16px rgba(0,0,0,.55);
     transition: transform .16s ease, opacity .2s ease;
   }
 
   .custom-cursor-ring {
     width: 34px;
     height: 34px;
-    border: 1px solid rgba(37,99,235,.65);
+    border: 1px solid rgba(0,0,0,.65);
     background: rgba(255,255,255,.08);
     backdrop-filter: blur(3px);
     transition: width .22s ease, height .22s ease, border-color .18s ease,
@@ -152,8 +150,8 @@ html[data-theme="light"] ::selection {
   .custom-cursor-ring.is-hovering {
     width: 50px;
     height: 50px;
-    border-color: rgba(124,58,237,.75);
-    background: rgba(124,58,237,.07);
+    border-color: rgba(0,0,0,.75);
+    background: rgba(0,0,0,.07);
   }
 
   .custom-cursor-dot.is-clicking { transform: translate(-50%, -50%) scale(.65); }
@@ -192,9 +190,9 @@ body {
   display: block;
   overflow: hidden;
   background:
-    radial-gradient(circle at 15% 12%, rgba(96,165,250,.10), transparent 30%),
-    radial-gradient(circle at 85% 82%, rgba(167,139,250,.08), transparent 32%),
-    #f7f8fc;
+    radial-gradient(circle at 15% 12%, rgba(0,0,0,.045), transparent 30%),
+    radial-gradient(circle at 85% 82%, rgba(0,0,0,.035), transparent 32%),
+    #ffffff;
   animation: light-bg-breathe 10s ease-in-out infinite alternate;
 }
 
@@ -211,13 +209,13 @@ body {
 .light-glow-one {
   left: -18%;
   top: -18%;
-  background: rgba(96, 165, 250, .12);
+  background: rgba(0, 0, 0, .06);
 }
 
 .light-glow-two {
   right: -18%;
   bottom: -20%;
-  background: rgba(167, 139, 250, .14);
+  background: rgba(0, 0, 0, .07);
   animation-delay: -6s;
   animation-duration: 17s;
 }
@@ -226,7 +224,7 @@ body {
   position: absolute;
   inset: 0;
   opacity: .42;
-  background-image: radial-gradient(rgba(71, 85, 105, .11) .8px, transparent .8px);
+  background-image: radial-gradient(rgba(0, 0, 0, .10) .8px, transparent .8px);
   background-size: 26px 26px;
   mask-image: linear-gradient(180deg, black 0%, rgba(0,0,0,.7) 58%, transparent 100%);
   -webkit-mask-image: linear-gradient(180deg, black 0%, rgba(0,0,0,.7) 58%, transparent 100%);
@@ -241,7 +239,7 @@ body {
   min-height: 260px;
   max-width: 680px;
   max-height: 680px;
-  border: 1px solid rgba(96,165,250,.10);
+  border: 1px solid rgba(0,0,0,.10);
   border-radius: 999px;
   transform: rotate(-18deg);
   animation: light-orbit 18s linear infinite;
@@ -275,7 +273,7 @@ html[data-theme="light"] .bg-white\/\[0\.04\],
 html[data-theme="light"] .bg-white\/\[0\.05\],
 html[data-theme="light"] .bg-white\/\[0\.06\] {
   backdrop-filter: blur(18px);
-  box-shadow: 0 16px 45px rgba(71,85,105,.07);
+  box-shadow: 0 16px 45px rgba(0,0,0,.07);
 }
 
 html[data-theme="light"] .light-atmosphere {
@@ -305,13 +303,13 @@ html[data-theme="dark"] .light-atmosphere {
 .dark-light-orb-one {
   left: -10%;
   top: 8%;
-  background: rgba(37, 99, 235, .17);
+  background: rgba(255,255,255, .10);
 }
 
 .dark-light-orb-two {
   right: -12%;
   top: 48%;
-  background: rgba(139, 92, 246, .16);
+  background: rgba(255,255,255, .08);
   animation-delay: -5s;
   animation-duration: 14s;
 }
@@ -322,7 +320,7 @@ html[data-theme="dark"] .light-atmosphere {
   height: 2px;
   left: 12%;
   border-radius: 999px;
-  background: linear-gradient(90deg, transparent, rgba(56,189,248,.35), rgba(167,139,250,.48), rgba(56,189,248,.22), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.18), rgba(255,255,255,.30), rgba(255,255,255,.14), transparent);
   filter: blur(5px);
   opacity: .42;
   transform-origin: center;
@@ -359,8 +357,8 @@ html[data-theme="dark"] .light-atmosphere {
   position: absolute;
   top: -12px;
   border-radius: 999px;
-  background: rgba(125, 211, 252, 0.95);
-  box-shadow: 0 0 5px rgba(56,189,248,.95), 0 0 12px rgba(59,130,246,.65), 0 0 22px rgba(139,92,246,.24);
+  background: rgba(255,255,255,0.95);
+  box-shadow: 0 0 5px rgba(255,255,255,.95), 0 0 12px rgba(255,255,255,.55), 0 0 22px rgba(255,255,255,.18);
   animation: neon-dot-fall linear infinite, neon-dot-twinkle ease-in-out infinite;
   will-change: transform, opacity, filter;
   animation-timing-function: linear;
@@ -386,8 +384,8 @@ html[data-theme="dark"] .light-atmosphere {
 .dark-grid {
   opacity: 0.16;
   background-image:
-    linear-gradient(rgba(148, 163, 184, 0.055) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(148, 163, 184, 0.055) 1px, transparent 1px);
+    linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
   background-size: 72px 72px;
   mask-image: radial-gradient(ellipse 85% 70% at 50% 42%, black 18%, transparent 88%);
   -webkit-mask-image: radial-gradient(ellipse 85% 70% at 50% 42%, black 18%, transparent 88%);
@@ -399,7 +397,7 @@ html[data-theme="dark"] .light-atmosphere {
   width: 124%;
   height: 1px;
   opacity: 0.16;
-  background: linear-gradient(90deg, transparent, rgba(96, 165, 250, 0.65), rgba(167, 139, 250, 0.45), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0.24), transparent);
   filter: blur(0.35px);
 }
 
@@ -418,8 +416,8 @@ html[data-theme="dark"] .light-atmosphere {
 
 .dark-vignette {
   background:
-    radial-gradient(ellipse at center, transparent 34%, rgba(2, 6, 23, 0.18) 68%, rgba(2, 6, 23, 0.62) 100%),
-    linear-gradient(180deg, rgba(2, 6, 23, 0.10), transparent 24%, transparent 76%, rgba(2, 6, 23, 0.20));
+    radial-gradient(ellipse at center, transparent 34%, rgba(0, 0, 0, 0.18) 68%, rgba(0, 0, 0, 0.62) 100%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.10), transparent 24%, transparent 76%, rgba(0, 0, 0, 0.20));
 }
 
 html[data-theme="light"] .dark-atmosphere {
