@@ -14,7 +14,7 @@ export default function BackgroundGlow() {
   }, []);
 
   return (
-    <div className="fixed inset-0 -z-10 bg-[#05060a] overflow-hidden">
+    <div className="fixed inset-0 -z-10 bg-[var(--background)] overflow-hidden">
 
       {/* base ambient field */}
       <div
@@ -56,7 +56,7 @@ export default function BackgroundGlow() {
       />
 
       {/* cinematic vignette */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.3)_50%,rgba(0,0,0,0.85)_100%)]" />
+      <div className="background-vignette absolute inset-0" />
 
     </div>
   );
