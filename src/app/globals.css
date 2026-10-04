@@ -425,8 +425,42 @@ html[data-theme="light"] .dark-atmosphere {
 }
 
 
-/* Light theme monochrome block rain. */
-.light-block-rain { position:absolute; inset:0; overflow:hidden; opacity:.42; }
-.light-fall-block { position:absolute; top:-12%; width:1px; height:clamp(34px,5vw,76px); background:linear-gradient(to bottom, transparent, rgba(0,0,0,.24), rgba(0,0,0,.04)); animation:light-block-fall linear infinite; will-change:transform,opacity; }
-@keyframes light-block-fall { 0% { transform:translate3d(0,-12vh,0); opacity:0; } 10% { opacity:.75; } 82% { opacity:.34; } 100% { transform:translate3d(0,118vh,0); opacity:0; } }
-@media (prefers-reduced-motion:reduce) { .light-block-rain,.light-fall-block { animation:none; } }
+/* Light-theme monochrome dot shower, matching the dark-theme falling dots. */
+.light-dot-shower {
+  overflow: hidden;
+  opacity: .46;
+  mask-image: linear-gradient(180deg, black 0%, black 62%, rgba(0,0,0,.72) 82%, transparent 100%);
+  -webkit-mask-image: linear-gradient(180deg, black 0%, black 62%, rgba(0,0,0,.72) 82%, transparent 100%);
+}
+
+.light-fall-dot {
+  position: absolute;
+  top: -12px;
+  border-radius: 999px;
+  background: rgba(0,0,0,.58);
+  box-shadow: 0 0 5px rgba(0,0,0,.28), 0 0 12px rgba(0,0,0,.16), 0 0 22px rgba(0,0,0,.08);
+  animation: light-dot-fall linear infinite, light-dot-twinkle ease-in-out infinite;
+  will-change: transform, opacity, filter;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+}
+
+@keyframes light-dot-fall {
+  0% { transform: translate3d(0,-18px,0) scale(.7); opacity: 0; }
+  8% { opacity: .52; }
+  58% { opacity: .38; }
+  68% { opacity: .72; filter: brightness(1.35); }
+  72% { opacity: .30; filter: brightness(.9); }
+  78% { opacity: .58; filter: brightness(1.15); }
+  88% { opacity: .16; filter: brightness(.75); }
+  100% { transform: translate3d(0,118vh,0) scale(.5); opacity: 0; filter: brightness(.7); }
+}
+
+@keyframes light-dot-twinkle {
+  0%, 100% { opacity: .24; }
+  50% { opacity: .68; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .light-fall-dot { animation: none; top: 12%; opacity: .28; }
+}
