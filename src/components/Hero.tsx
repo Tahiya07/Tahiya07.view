@@ -9,7 +9,7 @@ export default function Hero() {
           Tahiya Zareen Hiya
         </h1>
 
-        <p className="text-white/40 tracking-[0.25em] uppercase text-[10px]">
+        <p className="text-white/55 tracking-[0.2em] uppercase text-xs sm:text-sm font-medium">
           Software Developer • AI/ML
         </p>
 
