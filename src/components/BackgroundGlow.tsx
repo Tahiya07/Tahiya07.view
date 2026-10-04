@@ -18,6 +18,8 @@ export default function BackgroundGlow() {
         <div className="light-glow light-glow-one" />
         <div className="light-glow light-glow-two" />
         <div className="light-grid" />
+        <div className="light-orbit" style={{ left: "30%", top: "18%" }} />
+        <div className="light-orbit" style={{ left: "52%", top: "54%", animationDelay: "-9s", opacity: 0.55 }} />
       </div>
 
       <div className="dark-atmosphere pointer-events-none absolute inset-0">
