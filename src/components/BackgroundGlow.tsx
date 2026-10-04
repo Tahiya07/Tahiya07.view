@@ -17,6 +17,13 @@ export default function BackgroundGlow() {
       <div className="dark-atmosphere pointer-events-none absolute inset-0">
         <div className="dark-grid absolute inset-0" />
 
+        <div className="dark-energy-field absolute inset-0" aria-hidden="true">
+          <div className="dark-light-orb dark-light-orb-one" />
+          <div className="dark-light-orb dark-light-orb-two" />
+          <div className="dark-light-beam dark-light-beam-one" />
+          <div className="dark-light-beam dark-light-beam-two" />
+        </div>
+
         <div className="dark-dot-shower absolute inset-0" aria-hidden="true">
           {Array.from({ length: 56 }, (_, i) => {
             const left = (i * 37.7 + 8) % 100;
