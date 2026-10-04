@@ -1,38 +1,70 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 
 export default function BackgroundGlow() {
-  const [scrollY, setScrollY] = useState(0);
+  const reduceMotion = useReducedMotion();
+  const { scrollYProgress } = useScroll();
 
-  useEffect(() => {
-    const onScroll = () => setScrollY(window.scrollY);
+  const lightGlowOneX = useTransform(scrollYProgress, [0, 1], [0, 90]);
+  const lightGlowOneY = useTransform(scrollYProgress, [0, 1], [0, -70]);
+  const lightGlowTwoX = useTransform(scrollYProgress, [0, 1], [0, -80]);
+  const lightGlowTwoY = useTransform(scrollYProgress, [0, 1], [0, 85]);
+  const lightGridY = useTransform(scrollYProgress, [0, 1], [0, -90]);
+  const lightOrbitOneRotate = useTransform(scrollYProgress, [0, 1], [-18, 28]);
+  const lightOrbitTwoRotate = useTransform(scrollYProgress, [0, 1], [18, -42]);
 
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  const darkOrbOneX = useTransform(scrollYProgress, [0, 1], [0, 120]);
+  const darkOrbOneY = useTransform(scrollYProgress, [0, 1], [0, -90]);
+  const darkOrbTwoX = useTransform(scrollYProgress, [0, 1], [0, -130]);
+  const darkOrbTwoY = useTransform(scrollYProgress, [0, 1], [0, 110]);
+  const darkGridY = useTransform(scrollYProgress, [0, 1], [0, -130]);
+  const darkTraceOneX = useTransform(scrollYProgress, [0, 1], [0, 180]);
+  const darkTraceOneY = useTransform(scrollYProgress, [0, 1], [0, -110]);
+  const darkTraceTwoX = useTransform(scrollYProgress, [0, 1], [0, -160]);
+  const darkTraceTwoY = useTransform(scrollYProgress, [0, 1], [0, 90]);
+  const dotShowerY = useTransform(scrollYProgress, [0, 1], [0, -170]);
+  const dotShowerScale = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
+
+  const motionStyle = (x: ReturnType<typeof useTransform>, y: ReturnType<typeof useTransform>) =>
+    reduceMotion ? undefined : { x, y };
 
   return (
     <div className="fixed inset-0 z-0 overflow-hidden bg-[var(--background)]">
       <div className="light-atmosphere pointer-events-none absolute inset-0" aria-hidden="true">
-        <div className="light-glow light-glow-one" />
-        <div className="light-glow light-glow-two" />
-        <div className="light-grid" />
-        <div className="light-orbit" style={{ left: "30%", top: "18%" }} />
-        <div className="light-orbit" style={{ left: "52%", top: "54%", animationDelay: "-9s", opacity: 0.55 }} />
+        <motion.div className="light-glow light-glow-one" style={motionStyle(lightGlowOneX, lightGlowOneY)} />
+        <motion.div className="light-glow light-glow-two" style={motionStyle(lightGlowTwoX, lightGlowTwoY)} />
+        <motion.div className="light-grid" style={reduceMotion ? undefined : { y: lightGridY }} />
+        <motion.div
+          className="light-orbit"
+          style={reduceMotion ? { left: "30%", top: "18%" } : { left: "30%", top: "18%", rotate: lightOrbitOneRotate }}
+        />
+        <motion.div
+          className="light-orbit"
+          style={reduceMotion
+            ? { left: "52%", top: "54%", opacity: 0.55 }
+            : { left: "52%", top: "54%", opacity: 0.55, rotate: lightOrbitTwoRotate }}
+        />
       </div>
 
       <div className="dark-atmosphere pointer-events-none absolute inset-0">
-        <div className="dark-grid absolute inset-0" />
+        <motion.div
+          className="dark-grid absolute inset-0"
+          style={reduceMotion ? undefined : { y: darkGridY }}
+        />
 
         <div className="dark-energy-field absolute inset-0" aria-hidden="true">
-          <div className="dark-light-orb dark-light-orb-one" />
-          <div className="dark-light-orb dark-light-orb-two" />
+          <motion.div className="dark-light-orb dark-light-orb-one" style={motionStyle(darkOrbOneX, darkOrbOneY)} />
+          <motion.div className="dark-light-orb dark-light-orb-two" style={motionStyle(darkOrbTwoX, darkOrbTwoY)} />
           <div className="dark-light-beam dark-light-beam-one" />
           <div className="dark-light-beam dark-light-beam-two" />
         </div>
 
-        <div className="dark-dot-shower absolute inset-0" aria-hidden="true">
+        <motion.div
+          className="dark-dot-shower absolute inset-0"
+          aria-hidden="true"
+          style={reduceMotion ? undefined : { y: dotShowerY, scale: dotShowerScale }}
+        >
           {Array.from({ length: 56 }, (_, i) => {
             const left = (i * 37.7 + 8) % 100;
             const delay = -((i * 0.47) % 7.5);
@@ -40,39 +72,46 @@ export default function BackgroundGlow() {
             const size = 2.2 + ((i * 0.31) % 2.8);
             const pulseDelay = -((i * 0.83) % 6.5);
             const pulseDuration = 4.5 + ((i * 0.67) % 4.5);
+
             return (
-              <span key={i} className="dark-fall-dot" style={{
-                left: left + "%", width: size + "px", height: size + "px",
-                animationDelay: delay + "s, " + pulseDelay + "s",
-                animationDuration: duration + "s, " + pulseDuration + "s",
-              }} />
+              <span
+                key={i}
+                className="dark-fall-dot"
+                style={{
+                  left: left + "%",
+                  width: size + "px",
+                  height: size + "px",
+                  animationDelay: delay + "s, " + pulseDelay + "s",
+                  animationDuration: duration + "s, " + pulseDuration + "s",
+                }}
+              />
             );
           })}
-        </div>
+        </motion.div>
 
-        <div
+        <motion.div
           className="absolute -left-[18%] -top-[16%] h-[720px] w-[720px] rounded-full blur-[150px]"
           style={{
             background: "rgba(37, 99, 235, 0.13)",
-            transform: "translate(" + scrollY * 0.018 + "px, " + scrollY * -0.012 + "px)",
+            ...(reduceMotion ? {} : { x: useTransform(scrollYProgress, [0, 1], [0, 120]), y: useTransform(scrollYProgress, [0, 1], [0, -80]) }),
           }}
         />
 
-        <div
+        <motion.div
           className="absolute -bottom-[22%] -right-[16%] h-[760px] w-[760px] rounded-full blur-[170px]"
           style={{
             background: "rgba(139, 92, 246, 0.11)",
-            transform: "translate(" + scrollY * -0.018 + "px, " + scrollY * 0.014 + "px)",
+            ...(reduceMotion ? {} : { x: useTransform(scrollYProgress, [0, 1], [0, -120]), y: useTransform(scrollYProgress, [0, 1], [0, 100]) }),
           }}
         />
 
-        <div
+        <motion.div
           className="dark-trace dark-trace-one"
-          style={{ transform: "translate3d(" + scrollY * 0.012 + "px, " + scrollY * -0.008 + "px, 0)" }}
+          style={reduceMotion ? undefined : { x: darkTraceOneX, y: darkTraceOneY }}
         />
-        <div
+        <motion.div
           className="dark-trace dark-trace-two"
-          style={{ transform: "translate3d(" + scrollY * -0.01 + "px, " + scrollY * 0.006 + "px, 0)" }}
+          style={reduceMotion ? undefined : { x: darkTraceTwoX, y: darkTraceTwoY }}
         />
 
         <div className="dark-vignette absolute inset-0" />
