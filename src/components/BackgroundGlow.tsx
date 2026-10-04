@@ -1,9 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
-
 export default function BackgroundGlow() {
-  const reduceMotion = useReducedMotion();
   return (
     <div className="fixed inset-0 z-0 overflow-hidden bg-[var(--background)]">
       <div className="light-atmosphere pointer-events-none absolute inset-0" aria-hidden="true">
@@ -52,9 +49,9 @@ export default function BackgroundGlow() {
           })}
         </div>
 
-        <div className="absolute -left-[18%] -top-[16%] h-[720px] w-[720px] rounded-full blur-[150px]" style={{ background: "rgba(37, 99, 235, 0.13)" }} />
+        <div className="absolute -left-[18%] -top-[16%] h-[720px] w-[720px] rounded-full blur-[150px]" style={{ background: "rgba(255, 255, 255, 0.07)" }} />
 
-        <div className="absolute -bottom-[22%] -right-[16%] h-[760px] w-[760px] rounded-full blur-[170px]" style={{ background: "rgba(139, 92, 246, 0.11)" }} />
+        <div className="absolute -bottom-[22%] -right-[16%] h-[760px] w-[760px] rounded-full blur-[170px]" style={{ background: "rgba(255, 255, 255, 0.05)" }} />
 
         <div className="dark-trace dark-trace-one" />
         <div className="dark-trace dark-trace-two" />
