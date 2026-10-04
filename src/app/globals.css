@@ -56,7 +56,15 @@ html[data-theme="light"] .bg-white\/10 { background-color: rgba(17,24,39,.06) !i
 html[data-theme="light"] .border-white\/10 { border-color: rgba(17,24,39,.10) !important; }
 html[data-theme="light"] .border-white\/20 { border-color: rgba(17,24,39,.14) !important; }
 html[data-theme="light"] .border-white\/25 { border-color: rgba(17,24,39,.18) !important; }
-html[data-theme="light"] .bg-black\/\[0\.40\] { background-color: rgba(255,255,255,.78) !important; }\n\n.background-vignette {\n  background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.85) 100%);\n}\n\nhtml[data-theme="light"] .background-vignette {\n  background: radial-gradient(circle at center, transparent 0%, rgba(255,255,255,0.02) 55%, rgba(255,255,255,0.28) 100%);\n}
+html[data-theme="light"] .bg-black\/\[0\.40\] { background-color: rgba(255,255,255,.78) !important; }
+
+.background-vignette {
+  background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.85) 100%);
+}
+
+html[data-theme="light"] .background-vignette {
+  background: radial-gradient(circle at center, transparent 0%, rgba(255,255,255,0.02) 55%, rgba(255,255,255,0.28) 100%);
+}
 
 html[data-theme="light"] ::selection {
   background: rgba(59,130,246,.18);
