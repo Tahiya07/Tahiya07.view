@@ -13,12 +13,12 @@ const sections = [
 
 export default function Navbar() {
   const [active, setActive] = useState("about");
-  const [indicator, setIndicator] = useState({
+  const [light, setLight] = useState(true);\n  const [indicator, setIndicator] = useState({
     left: 0,
     width: 0,
   });
 
-  const refs = useRef<Record<string, HTMLAnchorElement | null>>({});
+  const refs = useRef<Record<string, HTMLAnchorElement | null>>({});\n\n  useEffect(() => {\n    const saved = localStorage.getItem("portfolio-theme");\n    const isLight = saved !== "dark";\n    setLight(isLight);\n    document.documentElement.dataset.theme = isLight ? "light" : "dark";\n  }, []);\n\n  const toggleTheme = () => {\n    const next = !light;\n    setLight(next);\n    document.documentElement.dataset.theme = next ? "light" : "dark";\n    localStorage.setItem("portfolio-theme", next ? "light" : "dark");\n  };
 
   // scroll tracking
   useEffect(() => {
@@ -108,7 +108,7 @@ export default function Navbar() {
             }}
           />
 
-          {sections.map((sec) => (
+          <button\n            type="button"\n            onClick={toggleTheme}\n            aria-label={`Switch to ${light ? "dark" : "light"} theme`}\n            className="relative z-10 ml-1 px-2 py-1 text-xs text-white/60 hover:text-white transition"\n          >\n            {light ? "◐" : "☼"}\n          </button>\n\n          {sections.map((sec) => (
             <a
               key={sec}
               ref={(el) => {
