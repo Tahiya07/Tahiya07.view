@@ -4,7 +4,6 @@ import About from "../components/About";
 import Skills from "../components/Skills";
 import Experience from "../components/Experience";
 import Projects from "../components/Projects";
-import GitHub from "../components/Github";
 import Contact from "../components/Contact";
 import BackgroundGlow from "../components/BackgroundGlow";
 import LightProvider from "../components/LightProvider";
@@ -42,10 +41,6 @@ export default function Page() {
 
               <Section id="projects" title="Projects">
                 <Projects />
-              </Section>
-
-              <Section id="github" title="GitHub">
-                <GitHub />
               </Section>
 
               <Section id="contact" title="Contact">
