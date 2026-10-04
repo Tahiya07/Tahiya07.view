@@ -22,7 +22,7 @@ export default function Section({
         viewport={{ once: true, amount: 0.35 }}
         transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
       >
-        <p className="text-sm sm:text-base font-semibold tracking-[0.16em] uppercase text-white/65">
+        <p className="text-xs sm:text-sm font-semibold tracking-[0.14em] uppercase text-white/65">
           {title}
         </p>
         <motion.div
