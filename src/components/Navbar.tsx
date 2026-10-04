@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 
 const sections = [
-  "about",
+  "home",
   "skills",
   "experience",
   "projects",
@@ -11,7 +11,7 @@ const sections = [
 ];
 
 export default function Navbar() {
-  const [active, setActive] = useState("about");
+  const [active, setActive] = useState("home");
   const [light, setLight] = useState(true);
   const [indicator, setIndicator] = useState({ left: 0, width: 0 });
   const refs = useRef<Record<string, HTMLAnchorElement | null>>({});
@@ -33,7 +33,7 @@ export default function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       const scrollPos = window.scrollY + window.innerHeight / 3;
-      let current = "about";
+      let current = "home";
 
       for (const id of sections) {
         const el = document.getElementById(id);
@@ -78,12 +78,12 @@ export default function Navbar() {
               ref={(el) => {
                 refs.current[sec] = el;
               }}
-              href={sec === "about" ? "#top" : `#${sec}`}
+              href={sec === "home" ? "#top" : `#${sec}`}
               className={`relative z-10 px-3 py-1 text-sm capitalize transition ${
                 active === sec ? "text-white" : "text-white/40"
               }`}
             >
-              {sec}
+              {sec === "home" ? "Home" : sec}
             </a>
           ))}
 
@@ -103,12 +103,12 @@ export default function Navbar() {
           {sections.map((sec) => (
             <a
               key={sec}
-              href={`#${sec}`}
+              href={sec === "home" ? "#top" : `#${sec}`}
               className={`text-[10px] capitalize whitespace-nowrap transition ${
                 active === sec ? "text-white" : "text-white/40"
               }`}
             >
-              {sec}
+              {sec === "home" ? "Home" : sec}
             </a>
           ))}
 
