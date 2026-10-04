@@ -7,7 +7,6 @@ const sections = [
   "skills",
   "experience",
   "projects",
-  "github",
   "contact",
 ];
 
