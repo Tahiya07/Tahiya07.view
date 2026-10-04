@@ -72,7 +72,7 @@ function ProjectThumbnail({
           tabIndex={-1}
         />
       ) : (
-        <div className="absolute inset-0 flex items-center justify-center bg-[radial-gradient(circle_at_30%_20%,rgba(99,102,241,0.28),transparent_40%),radial-gradient(circle_at_75%_75%,rgba(34,211,238,0.16),transparent_42%)]">
+        <div className="project-thesis-surface absolute inset-0 flex items-center justify-center">
           <span className="text-[10px] font-medium uppercase tracking-[0.22em] text-white/55">
             Thesis project
           </span>
