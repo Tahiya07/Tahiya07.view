@@ -1,13 +1,7 @@
-import ProfileOrb from "../components/ProfileOrb";
-
 export default function Hero() {
   return (
     <section className="min-h-[82vh] flex items-center justify-center px-4">
       <div className="max-w-2xl text-center space-y-7">
-        <div className="flex justify-center">
-          <ProfileOrb />
-        </div>
-
         <p className="text-white/40 tracking-[0.25em] uppercase text-[10px]">
           Software Developer • AI/ML
         </p>
