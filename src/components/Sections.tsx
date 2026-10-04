@@ -19,16 +19,17 @@ export default function Section({
     offset: ["start 88%", "end 12%"],
   });
 
-  const contentY = useTransform(scrollYProgress, [0, 0.22, 0.5, 0.78, 1], [46, 0, 0, 0, -28]);
-  const contentOpacity = useTransform(scrollYProgress, [0, 0.16, 0.5, 0.84, 1], [0.35, 1, 1, 1, 0.72]);
-  const contentScale = useTransform(scrollYProgress, [0, 0.2, 0.5, 0.8, 1], [0.985, 1, 1, 1, 0.995]);
-  const lineScale = useTransform(scrollYProgress, [0, 0.3, 0.6, 1], [0.25, 1, 1, 0.72]);
+  const revealY = useTransform(scrollYProgress, [0, 0.35], [36, 0]);
+  const revealOpacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
+  const revealScale = useTransform(scrollYProgress, [0, 0.35], [0.985, 1]);
+  const lineScale = useTransform(scrollYProgress, [0, 0.35], [0, 1]);
 
   return (
     <section ref={ref} id={id} className="relative scroll-mt-32">
       <motion.div
         className="mb-8 sm:mb-9"
-        style={reduceMotion ? undefined : { y: contentY, opacity: contentOpacity }}
+        initial={reduceMotion ? false : { opacity: 0, y: 24 }}
+        style={reduceMotion ? undefined : { y: revealY, opacity: revealOpacity }}
       >
         <p className="text-xs sm:text-sm font-semibold tracking-[0.14em] uppercase text-white/65">
           {title}
@@ -42,10 +43,11 @@ export default function Section({
 
       <motion.div
         className="relative"
+        initial={reduceMotion ? false : { opacity: 0, y: 28 }}
         style={
           reduceMotion
             ? undefined
-            : { y: contentY, opacity: contentOpacity, scale: contentScale }
+            : { y: revealY, opacity: revealOpacity, scale: revealScale }
         }
       >
         {children}
