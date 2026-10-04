@@ -21,10 +21,10 @@ export default function Page() {
         <div className="relative z-10">
           <Navbar />
 
-          <div className="max-w-7xl mx-auto px-6 sm:px-8 py-16 sm:py-20">
+          <div className="max-w-6xl mx-auto px-8 sm:px-12 lg:px-16 py-14 sm:py-16">
             <Hero />
 
-            <div className="mt-20 sm:mt-24 space-y-20 sm:space-y-24">
+            <div className="mt-16 sm:mt-20 space-y-16 sm:space-y-20">
               <Section id="about" title="About">
                 <About />
               </Section>
