@@ -87,12 +87,12 @@ function ProjectThumbnail({
 
 export default function Projects() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-12 gap-4 lg:gap-5 items-start">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-5 items-start">
       {projects.map((p, i) => (
         <MotionDiv
           key={p.title}
           delay={i * 0.05}
-          className={p.featured ? "md:col-span-7" : "md:col-span-5"}
+          className="min-w-0"
         >
           <a
             href={p.href}
