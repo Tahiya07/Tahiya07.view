@@ -7,8 +7,27 @@ export default function BackgroundGlow() {
         <div className="light-glow light-glow-one" />
         <div className="light-glow light-glow-two" />
         <div className="light-grid" />
-        <div className="light-orbit" style={{ left: "30%", top: "18%" }} />
-        <div className="light-orbit" style={{ left: "52%", top: "54%", opacity: 0.55 }} />
+        <div className="light-block-rain" aria-hidden="true">
+          {Array.from({ length: 48 }, (_, i) => {
+            const left = (i * 41.7 + 5) % 100;
+            const delay = -((i * 0.53) % 8);
+            const duration = 8 + ((i * 1.07) % 5);
+            const width = 1 + ((i * 0.19) % 1.4);
+
+            return (
+              <span
+                key={i}
+                className="light-fall-block"
+                style={{
+                  left: left + "%",
+                  width: width + "px",
+                  animationDelay: delay + "s",
+                  animationDuration: duration + "s",
+                }}
+              />
+            );
+          })}
+        </div>
       </div>
 
       <div className="dark-atmosphere pointer-events-none absolute inset-0">
