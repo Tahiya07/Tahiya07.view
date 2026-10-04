@@ -10,7 +10,7 @@ export default function GlassCard({
   const { x, y } = useLight();
 
   return (
-    <div className="relative group rounded-2xl">
+    <div className="relative group h-full rounded-2xl">
 
       {/* dynamic light layer */}
       <div
@@ -41,7 +41,7 @@ export default function GlassCard({
           p-6
           transition duration-300
           hover:border-white/25
-          hover:bg-white/[0.06]
+          hover:bg-white/[0.06]\n          hover:-translate-y-1
         "
       >
         {children}
