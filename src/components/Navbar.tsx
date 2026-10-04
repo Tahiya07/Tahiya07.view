@@ -4,12 +4,10 @@ import { useEffect, useRef, useState } from "react";
 
 const sections = [
   "about",
-  "education",
-  "experience",
-  "awards",
   "skills",
-  "research",
+  "experience",
   "projects",
+  "github",
   "contact",
 ];
 
