@@ -25,29 +25,29 @@ export default function Page() {
         <div className="relative z-10">
           <Navbar />
 
-          <div className="max-w-6xl mx-auto px-6 py-24">
+          <div className="max-w-6xl mx-auto px-6 py-20">
             <Hero />
 
-            <div className="flex flex-col gap-28 sm:gap-32">
-              <Section id="about" title="About">
-                <About />
-              </Section>
+            <div className="mt-24 space-y-28 sm:space-y-32">
+              <div className="grid gap-16 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
+                <Section id="about" title="About">
+                  <About />
+                </Section>
 
-              <Section id="education" title="Education">
-                <Education />
-              </Section>
+                <Section id="skills" title="Skills">
+                  <Skills />
+                </Section>
+              </div>
 
-              <Section id="experience" title="Experience">
-                <Experience />
-              </Section>
+              <div className="grid gap-16 lg:grid-cols-2 lg:items-start">
+                <Section id="education" title="Education">
+                  <Education />
+                </Section>
 
-              <Section id="awards" title="Awards">
-                <Awards />
-              </Section>
-
-              <Section id="skills" title="Skills">
-                <Skills />
-              </Section>
+                <Section id="experience" title="Experience">
+                  <Experience />
+                </Section>
+              </div>
 
               <Section id="research" title="Research">
                 <Research />
@@ -57,9 +57,15 @@ export default function Page() {
                 <Projects />
               </Section>
 
-              <Section id="github" title="GitHub">
-                <GitHub />
-              </Section>
+              <div className="grid gap-16 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+                <Section id="awards" title="Awards">
+                  <Awards />
+                </Section>
+
+                <Section id="github" title="GitHub">
+                  <GitHub />
+                </Section>
+              </div>
 
               <Section id="contact" title="Contact">
                 <Contact />
