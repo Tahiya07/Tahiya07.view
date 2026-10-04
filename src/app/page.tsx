@@ -1,6 +1,5 @@
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
-import About from "../components/About";
 import Skills from "../components/Skills";
 import Experience from "../components/Experience";
 import Projects from "../components/Projects";
@@ -25,10 +24,6 @@ export default function Page() {
             <Hero />
 
             <div className="mt-16 sm:mt-20 space-y-16 sm:space-y-20">
-              <Section id="about" title="About">
-                <About />
-              </Section>
-
               <Section id="skills" title="Skills">
                 <Skills />
               </Section>
