@@ -28,7 +28,7 @@ export default function Page() {
           <div className="max-w-6xl mx-auto px-6 py-24">
             <Hero />
 
-            <div className="flex flex-col gap-40">
+            <div className="flex flex-col gap-28 sm:gap-32">
               <Section id="about" title="About">
                 <About />
               </Section>
@@ -57,7 +57,9 @@ export default function Page() {
                 <Projects />
               </Section>
 
-              <GitHub />
+              <Section id="github" title="GitHub">
+                <GitHub />
+              </Section>
 
               <Section id="contact" title="Contact">
                 <Contact />
